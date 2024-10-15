@@ -1,0 +1,118 @@
+@startuml Pacman
+Class InformacionChoque{
++PerderVida()
++Morir()
+}
+Class Jugador{
+-Muerto:Muertoporchoque
+-Vivo:seguirjugando
+}
+
+Class Juego{
++Iniciar()
++Jugar()
++Cerrar()
+}
+Class BibliotecaJuego{
++Buscar
+}
+Class Arcade{
++Encender
++Apagar
+}
+Class JuegoPacman{
+    +Jugar()
+    +Cerrar()
+}
+Class GestorColision{
+    +Analizar
+    -Analizar:InformacionChoque
+}
+Class Colisionable{
++Chocar()
+}
+Class Objeto{
+
+}
+Class Muro{
+    +Chocar()
+    -Chocar:chococonmuro
+}
+Class Pacman
+Class Fantasma
+Class Personaje{
++PerderVida()
++GanarVida()
++Morir()
+}
+Class Color
+Class Rojo
+Class Amarillo 
+Class Azul
+Class Rosa
+Class Ojo
+Class Boca
+Class Fruta
+Class EstadoFisico
+Class EstadoPsicologico
+Class Vivo
+Class Muerto
+Class Vulnerable
+Class Manzana
+Class Naranja
+Class Banana
+Class Cherry
+Class Mandarina
+Class VectorMovimiento{
+    +Mover()
+}
+Class MoverIzquierda
+Class MoverDerecha
+Class MoverArriba
+Class MoverAbajo
+
+JuegoPacman"1"*--"Many"Personaje
+JuegoPacman"1"*--"Many"Objeto
+Pacman"1" --|> "1"Personaje
+Fantasma"1"--|>"1"Personaje
+Personaje"1"*--"Many"Color
+Color"1" <|-- "1"Amarillo
+Color"1" <|-- "1"Azul
+Color"1" <|-- "1"Rosa
+Color"1" <|-- "1"Rojo
+Color"1"<|--"1"Naranja
+
+Fruta"1" <|-- "1"Manzana
+Fruta"1" <|-- "1"Banana
+Fruta"1" <|-- "1"Cherry
+Fruta"1" <|-- "1"Mandarina
+Personaje"1"*--"0,2"Ojo
+Personaje"1"*--"0,1"Boca
+Muro"1"--|> "1"Objeto
+Fruta"1"--|>"1"Objeto
+Objeto"1"*--"Many"Color
+Fantasma"Many"*--"1,2"EstadoFisico
+BibliotecaJuego"1"*--"Many"Juego
+Arcade"1"*--"1"BibliotecaJuego
+Jugador"1,2" o--"1"Arcade
+JuegoPacman"1"--|>"1"Juego
+JuegoPacman"1"*--"1"GestorColision
+GestorColision"1" o--"1"Colisionable
+Colisionable"1"--|>"Many"Objeto
+Colisionable"1"--|>"Many"Personaje
+Pacman"1"*--"1,2"EstadoFisico
+Jugador"1" o-- "1"JuegoPacman
+Jugador"1" o-- "1"Pacman
+Personaje"Many"*--"1"EstadoFisico
+Vivo"1"--|>"1"EstadoFisico
+Muerto"1"--|>"1"EstadoFisico
+Fantasma"1,4"*--"1"EstadoPsicologico
+Vulnerable"1"--|>"1"EstadoPsicologico
+MoverAbajo"1"--|>"1"VectorMovimiento
+MoverArriba"1"--|>"1"VectorMovimiento
+MoverIzquierda"1"--|>"1"VectorMovimiento
+MoverDerecha"1"--|>"1"VectorMovimiento
+Jugador"1" o--"1"VectorMovimiento
+Pacman"1"*--"1"VectorMovimiento
+Colisionable"1" o--"1"InformacionChoque
+@enduml
