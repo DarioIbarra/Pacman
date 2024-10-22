@@ -1,5 +1,15 @@
 #include <iostream>
 #include <TazoDorado.hpp>
 int main (){
-    std::cout<<"imprimir desde c++"<<std::endl;
+    TazoDorado coqueto;
+
+    coqueto.Flotar();
+
+
+
+    std::cout
+    <<"¿El coqueto esta flotando?"
+    <<std::endl
+    <<coqueto.Flotando()
+    <<std::
 }
