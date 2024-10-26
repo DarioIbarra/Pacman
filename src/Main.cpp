@@ -11,5 +11,6 @@ int main (){
     <<"¿El coqueto esta flotando?"
     <<std::endl
     <<coqueto.Flotando()
-    <<std::
+    <<std::endl;
+    
 }
