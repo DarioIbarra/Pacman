@@ -35,13 +35,5 @@ int main(int argc, char const *argv[])
      direccion2 = new TazoDorado();
      cout<<"Valor en direccion2: " <<  direccion2->Flotando() << endl;
 
-
-
-
-
-
-
-    
-    
     return 0;
 }

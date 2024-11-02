@@ -20,3 +20,9 @@ bin/mem : src/memoria.cpp
 assets/mensaje : bin/tazo
 	./bin/tazo > assets/mensaje
 
+runprueba : bin/animacion
+	./bin/animacion
+
+bin/animacion : src/prueba.cpp
+	g++ src/prueba.cpp -Iinclude -o bin/animacion -std=c++2a -lftxui-screen -lftxui-dom -lftxui-component 
+
